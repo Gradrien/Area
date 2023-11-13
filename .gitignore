@@ -1,0 +1,9 @@
+.idea
+.vscode
+postgresql
+data
+dhparam
+package-lock.json
+node_modules
+*.apk
+.env

@@ -1,0 +1,11 @@
+.dot-marker {
+  width: 1rem;
+  height: 1rem;
+  border-radius: 1rem;
+  border: 2px solid var(--blue);
+  transition: all 0.2s ease-in;
+}
+
+.dot-marker.filled {
+  background-color: var(--blue);
+}

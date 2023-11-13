@@ -1,0 +1,110 @@
+version: '3.8'
+
+networks:
+  area-network:
+    driver: bridge
+services:
+  nginx:
+    image: nginx:alpine
+    container_name: area-nginx
+    ports:
+      - "8080:80"
+      - "443:443"
+    volumes:
+      - ./server:/var/www
+      - ./nginx/conf.d/:/etc/nginx/conf.d/
+      - ./dhparam/:/etc/nginx/ssl/
+    depends_on:
+      - db
+      - server
+    networks:
+      - area-network
+
+  db:
+    image: postgres:16.0
+    container_name: postgres
+    volumes:
+      - ./postgresql/data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: area
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: root
+    networks:
+      - area-network
+  server:
+    build:
+      args:
+        user: area_root
+        uid: 1000
+      context: ./server
+      dockerfile: Dockerfile
+    image: area-server
+    container_name: area-server
+    restart: unless-stopped
+    working_dir: /var/www/
+    volumes:
+      - ./server:/var/www
+    networks:
+      - area-network
+    depends_on:
+      - db
+  server-queue:
+    build:
+      args:
+        user: area_root
+        uid: 1000
+      context: ./server
+      dockerfile: ./queue.Dockerfile
+    image: area-queue
+    container_name: area-queue
+    working_dir: /var/www/
+    command: "php artisan queue:work"
+    restart: always
+    volumes:
+      - ./server:/var/www
+    networks:
+      - area-network
+    depends_on:
+      - server
+      - db
+
+  client_web:
+    container_name: area-web
+    build:
+      context: ./client_web
+      dockerfile: Dockerfile
+    depends_on:
+      - client_mobile
+      - server
+    ports:
+      - "8081:8081"
+    command: sh -c "npm install && npm start"
+    volumes:
+      - ./client_web:/usr/app
+      - apk:/home/developer/mobile/apk/
+    networks:
+      - area-network
+
+  client_mobile:
+    container_name: area-mobile
+    build:
+      context: ./client_mobile
+      dockerfile: Dockerfile
+    volumes:
+       - apk:/home/developer/mobile/apk/
+
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: pgAdmin
+    ports:
+      - "5050:80"
+    depends_on:
+      - db
+    env_file: .env
+    networks:
+      - area-network
+
+volumes:
+  apk:

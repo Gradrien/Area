@@ -1,0 +1,60 @@
+.button-primary {
+  border: 2px solid rgb(76, 90, 246, 0.32);
+  background: rgba(76, 90, 246, 0.85);
+  box-shadow: 0 0 20px 0 rgba(76, 90, 246, 0.1);
+  backdrop-filter: blur(27px);
+  transition: all 0.2s ease-in;
+  padding: 0.75rem 1rem;
+  font-family: 'Poppins', sans-serif;
+  border-radius: 1rem;
+  width: 100%;
+  text-align: center;
+  color: var(--white);
+  font-weight: 600;
+}
+
+.button-primary:hover {
+  box-shadow: none;
+  background: rgb(76, 90, 246, 0.32);
+  border: 2px solid rgb(76, 90, 246, 0.85);
+  color: var(--blue);
+}
+
+.button-secondary.red {
+  border: 2px solid rgb(178, 67, 67, 0.85);
+  background: rgba(178, 67, 67, 0.25);
+  box-shadow: 0 0 20px 0 rgba(178, 67, 67, 0.1);
+  color: var(--red);
+}
+
+.button-secondary.red:hover {
+  background: rgb(178, 67, 67);
+  color: var(--white);
+}
+
+.button-secondary {
+  border: 2px solid rgb(76, 90, 246, 0.85);
+  background: rgba(76, 90, 246, 0.25);
+  box-shadow: 0 0 20px 0 rgba(76, 90, 246, 0.1);
+  backdrop-filter: blur(27px);
+  transition: all 0.2s ease-in;
+  padding: 0.75rem 1rem;
+  font-family: 'Poppins', sans-serif;
+  border-radius: 1rem;
+  width: 100%;
+  text-align: center;
+  color: var(--blue);
+  font-weight: 600;
+}
+
+.button-secondary:hover {
+  box-shadow: none;
+  background: rgba(76, 90, 246, 0.85);
+  color: var(--white);
+}
+
+@media screen and (min-width: 1440px) {
+  .button-secondary.red {
+    width: 25%;
+  }
+}

@@ -1,0 +1,62 @@
+---
+
+variables:
+  DOCKER_HOST: tcp://docker:2375/
+  DOCKER_DRIVER: overlay2
+
+stages:
+#  - build
+  - lint
+  - test
+
+#Build:
+#  stage: build
+#  image: docker:latest
+#  services:
+#    - name: docker:19-dind
+#      command: [ "--tls=false" ]
+#  variables:
+#    DOCKER_DRIVER: overlay
+#    DOCKER_HOST: tcp://docker:2375/
+#    DOCKER_TLS_CERTDIR: ""
+#    IMAGE_TAG: $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG
+#    FF_GITLAB_REGISTRY_HELPER_IMAGE: 1
+#
+#  script:
+#    - docker compose down
+#    - docker compose build
+#  artifacts:
+#    expire_in: 1 hour
+#    paths:
+#      - ${BINARY_NAME}
+#  rules:
+#    - if: $CI_COMMIT_BRANCH == "main"
+lint:
+  stage: lint
+  image: node:latest
+  before_script:
+    - echo "Installing prettier"
+    - npm install -g prettier
+  script:
+    - echo "Checking if react app is linted"
+    - prettier --config client_web/.prettierrc --check client_web/src
+  rules:
+    - if: $CI_COMMIT_BRANCH == "main"
+Test:
+  stage: test
+  image: composer:2.6.5
+  before_script:
+    - echo "Installing test dependencies"
+    - cd server
+    - composer install
+    - touch .env
+    - php artisan jwt:secret
+  script:
+    - echo "Launching server tests"
+    - php artisan test
+  artifacts:
+    expire_in: 1 hour
+    paths:
+      - ${BINARY_NAME}
+  rules:
+    - if: $CI_COMMIT_BRANCH == "main"

@@ -1,0 +1,208 @@
+.main-app.marketplace {
+  background-color: var(--white);
+  padding: 1.5rem 0 0;
+  max-width: none;
+}
+
+.content-limiter {
+  max-width: 120rem;
+  width: 100%;
+}
+
+.marketplace-hero {
+  background-image: url('../../assets/svg/hero_background.svg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  min-height: 10rem;
+}
+
+.marketplace-hero h1 {
+  text-align: center;
+  margin-top: 4rem;
+  margin-bottom: 1rem;
+}
+
+.marketplace-hero h3 {
+  font-family: 'Poppins', sans-serif;
+  color: var(--black);
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+}
+
+.searchbar {
+  height: 2rem;
+  width: 100%;
+  font-family: 'Poppins', sans-serif;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  color: var(--black);
+  font-weight: 600;
+  max-width: 360px;
+}
+
+.card-container p {
+  font-family: 'Poppins', sans-serif;
+}
+
+.marketplace-service-container {
+  gap: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 1rem;
+  overflow-x: auto;
+  width: 100%;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  margin-bottom: 4rem;
+}
+
+.marketplace-service-container li {
+  cursor: pointer;
+}
+
+.marketplace-service-container::-webkit-scrollbar {
+  display: none;
+}
+
+.marketplace-service {
+  background-color: #eff0f2;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 0.25rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.1s ease-in;
+}
+
+.marketplace-service.active {
+  background-color: var(--purple);
+}
+
+.marketplace-service img {
+  width: 2rem;
+  height: 2rem;
+}
+
+.last-added {
+  background-color: #f7f8fe;
+  padding: 2rem 1rem;
+  width: 100%;
+  min-height: 12rem;
+}
+
+.all-added {
+  background-color: var(--white);
+  padding: 2rem 1rem;
+  width: 100%;
+  min-height: 12rem;
+}
+
+.marketplace-h2 {
+  font-family: 'Poppins', sans-serif;
+  color: var(--black);
+  font-weight: 600;
+  font-size: 1.5rem;
+}
+
+.card-last-added {
+  /*display: flex;*/
+  /*gap: 2rem;*/
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-flow: column;
+  grid-gap: 2rem;
+  width: 100%;
+  overflow-x: auto;
+  align-items: center;
+  padding: 1rem;
+  margin-top: 1rem;
+}
+
+.card-container.marketplace {
+  margin-top: 1rem;
+}
+
+.card-container.marketplace.last {
+  grid-auto-flow: column;
+  width: 100%;
+  overflow-x: auto;
+}
+
+.filter-container {
+  margin-bottom: 4rem;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.filter-container a {
+  background-color: var(--blue);
+  border-radius: 0.75rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 2rem;
+  min-width: 2rem;
+  text-decoration: none;
+  color: var(--white);
+}
+
+@media screen and (min-width: 1080px) {
+  .filter-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 4rem;
+    margin-left: 3rem;
+    margin-right: 3rem;
+  }
+
+  .searchbar {
+    max-width: 460px;
+    height: 2.5rem;
+  }
+
+  .filter-container a {
+    height: 2.5rem;
+    min-width: 2.5rem;
+  }
+
+  .marketplace-hero {
+    min-height: 35rem;
+  }
+
+  .marketplace-hero h1 {
+    font-size: 4rem;
+    margin-bottom: 2rem;
+  }
+
+  .marketplace-hero h3 {
+    font-size: 1.5rem;
+    margin-bottom: 3rem;
+  }
+
+  .last-added {
+    display: flex;
+    justify-content: center;
+    padding: 4rem 2rem;
+  }
+
+  .all-added {
+    display: flex;
+    justify-content: center;
+    padding: 4rem 2rem;
+  }
+}
+
+@media screen and (min-width: 1600px) {
+  .filter-container {
+    margin-left: 5rem;
+    margin-right: 5rem;
+  }
+}

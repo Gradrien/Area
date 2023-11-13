@@ -1,0 +1,26 @@
+<svg width="390" height="844" viewBox="0 0 390 844" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_1_3)">
+<rect width="390" height="844" fill="white"/>
+<g filter="url(#filter0_f_1_3)">
+<path d="M175.297 226.233C206.136 244.755 229.658 277.168 246.235 314.952C262.905 352.829 272.536 395.985 257.071 427.101C241.512 458.218 200.857 477.203 165.11 493.687C129.456 510.171 98.8949 524.155 65.9262 527.304C33.0501 530.453 -2.14119 522.766 -41.0368 507.301C-79.9325 491.835 -122.533 468.683 -133.183 435.344C-143.74 401.912 -122.255 358.293 -107.9 311.989C-93.4534 265.592 -86.1373 216.509 -57.8916 197.154C-29.7386 177.706 19.2514 188.078 62.7775 195.487C106.304 202.988 144.458 207.711 175.297 226.233Z" fill="#EAB4BA"/>
+</g>
+<g filter="url(#filter1_f_1_3)">
+<path d="M374.736 546.175C397.099 559.606 414.156 583.11 426.177 610.509C438.264 637.976 445.249 669.27 434.034 691.834C422.752 714.398 393.271 728.165 367.349 740.118C341.494 752.072 319.333 762.212 295.426 764.495C271.586 766.779 246.067 761.205 217.862 749.99C189.657 738.775 158.766 721.986 151.043 697.811C143.387 673.568 158.967 641.938 169.376 608.36C179.853 574.716 185.158 539.124 205.64 525.088C226.055 510.986 261.58 518.507 293.143 523.879C324.706 529.319 352.373 532.744 374.736 546.175Z" fill="#C7CDFC"/>
+</g>
+</g>
+<defs>
+<filter id="filter0_f_1_3" x="-336" y="-14" width="800.861" height="742" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feGaussianBlur stdDeviation="100" result="effect1_foregroundBlur_1_3"/>
+</filter>
+<filter id="filter1_f_1_3" x="-51" y="317" width="690.683" height="648" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feGaussianBlur stdDeviation="100" result="effect1_foregroundBlur_1_3"/>
+</filter>
+<clipPath id="clip0_1_3">
+<rect width="390" height="844" fill="white"/>
+</clipPath>
+</defs>
+</svg>

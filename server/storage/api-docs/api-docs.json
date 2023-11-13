@@ -1,0 +1,1463 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Mingle API",
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/actions/{actionId}/defaultConfig": {
+            "get": {
+                "tags": [
+                    "Action / Reaction"
+                ],
+                "summary": "Get default config for an action",
+                "operationId": "f510e5cfad740238672a5a2365567e2e",
+                "parameters": [
+                    {
+                        "name": "actionId",
+                        "in": "path",
+                        "description": "ID of action that needs to be fetched",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                },
+                                "example": "{}"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request ID need to be numeric."
+                    },
+                    "404": {
+                        "description": "Not found."
+                    }
+                }
+            }
+        },
+        "/area": {
+            "post": {
+                "tags": [
+                    "Area"
+                ],
+                "summary": "Create an area",
+                "operationId": "04957fffa2f0975cafb751d2d0b34cf5",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "action_id",
+                                    "reaction_id",
+                                    "refresh"
+                                ],
+                                "properties": {
+                                    "action_id": {
+                                        "type": "integer",
+                                        "example": "1"
+                                    },
+                                    "reaction_id": {
+                                        "type": "integer",
+                                        "example": "1"
+                                    },
+                                    "refresh": {
+                                        "type": "integer",
+                                        "example": "1"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Area created successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "name": {
+                                            "type": "string",
+                                            "example": "Add a track to a playlist"
+                                        },
+                                        "action_name": {
+                                            "type": "string",
+                                            "example": "Add a track to a playlist"
+                                        },
+                                        "action_config": {
+                                            "type": "string",
+                                            "example": "{}"
+                                        },
+                                        "reaction_name": {
+                                            "type": "string",
+                                            "example": "Add a track to a playlist"
+                                        },
+                                        "reaction_config": {
+                                            "type": "string",
+                                            "example": "{}"
+                                        },
+                                        "id": {
+                                            "type": "integer",
+                                            "example": "1"
+                                        },
+                                        "refresh": {
+                                            "type": "integer",
+                                            "example": "1"
+                                        },
+                                        "action_icon": {
+                                            "type": "string",
+                                            "example": "http://localhost:8000/storage/icons/spotify.svg"
+                                        },
+                                        "reaction_icon": {
+                                            "type": "string",
+                                            "example": "http://localhost:8000/storage/icons/spotify.svg"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    }
+                }
+            }
+        },
+        "/area/{areaId}": {
+            "get": {
+                "tags": [
+                    "Area"
+                ],
+                "summary": "Get infos of the specified area",
+                "operationId": "9fa644c387ab913f9ad48827c16f6bc1",
+                "parameters": [
+                    {
+                        "name": "areaId",
+                        "in": "path",
+                        "description": "ID of area",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "name": {
+                                            "type": "string",
+                                            "example": "Add a track to a playlist"
+                                        },
+                                        "action_name": {
+                                            "type": "string",
+                                            "example": "Add a track to a playlist"
+                                        },
+                                        "reaction_name": {
+                                            "type": "string",
+                                            "example": "Add a track to a playlist"
+                                        },
+                                        "id": {
+                                            "type": "integer",
+                                            "example": "1"
+                                        },
+                                        "action_icon": {
+                                            "type": "string",
+                                            "example": "http://localhost:8000/storage/icons/spotify.svg"
+                                        },
+                                        "reaction_icon": {
+                                            "type": "string",
+                                            "example": "http://localhost:8000/storage/icons/spotify.svg"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "AreaId is not a number."
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Area"
+                ],
+                "summary": "Update an area",
+                "operationId": "119a24642999d49c281a1aaa81b9b202",
+                "parameters": [
+                    {
+                        "name": "areaId",
+                        "in": "path",
+                        "description": "ID of area that needs to be updated",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "name",
+                                    "action_config",
+                                    "reaction_config",
+                                    "refresh",
+                                    "active"
+                                ],
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "example": "Add a track to a playlist"
+                                    },
+                                    "action_config": {
+                                        "type": "string",
+                                        "example": "{}"
+                                    },
+                                    "reaction_config": {
+                                        "type": "string",
+                                        "example": "{}"
+                                    },
+                                    "refresh": {
+                                        "type": "integer",
+                                        "example": "1"
+                                    },
+                                    "active": {
+                                        "type": "boolean",
+                                        "example": "true"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Area updated successfully"
+                    },
+                    "400": {
+                        "description": "Bad Request ID need to be numeric."
+                    },
+                    "404": {
+                        "description": "This area doesn't exist."
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Area"
+                ],
+                "summary": "Delete an area",
+                "operationId": "749bfb5dcd9fb9b1ee9a399877dc9def",
+                "parameters": [
+                    {
+                        "name": "areaId",
+                        "in": "path",
+                        "description": "ID of area that needs to be deleted",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Area deleted successfully"
+                    },
+                    "400": {
+                        "description": "Bad Request ID need to be numeric."
+                    },
+                    "404": {
+                        "description": "This area doesn't exist."
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    }
+                }
+            }
+        },
+        "/area/{areaId}/data": {
+            "get": {
+                "tags": [
+                    "Area"
+                ],
+                "summary": "Get area details",
+                "operationId": "eb746846531df2e342e15536f6f818d8",
+                "parameters": [
+                    {
+                        "name": "areaId",
+                        "in": "path",
+                        "description": "ID of area",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "name": {
+                                            "type": "string",
+                                            "example": "Add a track to a playlist"
+                                        },
+                                        "active": {
+                                            "type": "boolean",
+                                            "example": "true"
+                                        },
+                                        "action_name": {
+                                            "type": "string",
+                                            "example": "Add a track to a playlist"
+                                        },
+                                        "action_config": {
+                                            "type": "string",
+                                            "example": "{}"
+                                        },
+                                        "reaction_name": {
+                                            "type": "string",
+                                            "example": "Add a track to a playlist"
+                                        },
+                                        "reaction_config": {
+                                            "type": "string",
+                                            "example": "{}"
+                                        },
+                                        "id": {
+                                            "type": "integer",
+                                            "example": "1"
+                                        },
+                                        "refresh": {
+                                            "type": "integer",
+                                            "example": "1"
+                                        },
+                                        "action_icon": {
+                                            "type": "string",
+                                            "example": "http://localhost:8000/storage/icons/spotify.svg"
+                                        },
+                                        "reaction_icon": {
+                                            "type": "string",
+                                            "example": "http://localhost:8000/storage/icons/spotify.svg"
+                                        },
+                                        "public": {
+                                            "type": "boolean",
+                                            "example": "true"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "AreaId is not a number."
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "404": {
+                        "description": "Area not found"
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    }
+                }
+            }
+        },
+        "/area/{areadId}/start": {
+            "post": {
+                "tags": [
+                    "Area"
+                ],
+                "summary": "Dispatch an area",
+                "operationId": "3410570085302b74772c3a1685e9fd2f",
+                "parameters": [
+                    {
+                        "name": "areaId",
+                        "in": "path",
+                        "description": "ID of area that needs to be dispatched",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Area created successfully"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    }
+                }
+            }
+        },
+        "/area/{areadId}/public": {
+            "post": {
+                "tags": [
+                    "Area"
+                ],
+                "summary": "Publish an area",
+                "operationId": "cc5e6b820c2f7771e722c6cb07dedd4f",
+                "parameters": [
+                    {
+                        "name": "areaId",
+                        "in": "path",
+                        "description": "ID of area that needs to be dispatched",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Area published successfully"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "This area doesn't belong to you"
+                    },
+                    "409": {
+                        "description": "Area already published"
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    }
+                }
+            }
+        },
+        "/area/{areaId}/public": {
+            "get": {
+                "tags": [
+                    "Area"
+                ],
+                "summary": "Get public area details",
+                "operationId": "fc4ff35efe5bfb5f30bb9ea8f20fac80",
+                "parameters": [
+                    {
+                        "name": "areaId",
+                        "in": "path",
+                        "description": "ID of the public area",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "name": {
+                                            "type": "string",
+                                            "example": "Add a track to a playlist"
+                                        },
+                                        "active": {
+                                            "type": "boolean",
+                                            "example": "true"
+                                        },
+                                        "action_name": {
+                                            "type": "string",
+                                            "example": "Add a track to a playlist"
+                                        },
+                                        "action_config": {
+                                            "type": "string",
+                                            "example": "{}"
+                                        },
+                                        "reaction_name": {
+                                            "type": "string",
+                                            "example": "Add a track to a playlist"
+                                        },
+                                        "reaction_config": {
+                                            "type": "string",
+                                            "example": "{}"
+                                        },
+                                        "id": {
+                                            "type": "integer",
+                                            "example": "1"
+                                        },
+                                        "refresh": {
+                                            "type": "integer",
+                                            "example": "1"
+                                        },
+                                        "action_icon": {
+                                            "type": "string",
+                                            "example": "http://localhost:8000/storage/icons/spotify.svg"
+                                        },
+                                        "reaction_icon": {
+                                            "type": "string",
+                                            "example": "http://localhost:8000/storage/icons/spotify.svg"
+                                        },
+                                        "public": {
+                                            "type": "boolean",
+                                            "example": "true"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "AreaId is not a number."
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "404": {
+                        "description": "Area not found"
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Area"
+                ],
+                "summary": "Delete a public area",
+                "operationId": "0102aeef78d3e8ce4479c94a6c76fd55",
+                "parameters": [
+                    {
+                        "name": "areaId",
+                        "in": "path",
+                        "description": "ID of area that needs to be deleted",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Public Area removed successfully"
+                    },
+                    "403": {
+                        "description": "This area doesn't belong to you"
+                    },
+                    "404": {
+                        "description": "Public Area not found"
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    }
+                }
+            }
+        },
+        "/area/public": {
+            "get": {
+                "tags": [
+                    "Area"
+                ],
+                "summary": "Get all the public areas",
+                "operationId": "8b95e5f62097079111ea60a1665cc1f1",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "properties": {
+                                            "name": {
+                                                "type": "string",
+                                                "example": "My AreaHandler"
+                                            },
+                                            "action_name": {
+                                                "type": "string",
+                                                "example": "Receive an email"
+                                            },
+                                            "reaction_name": {
+                                                "type": "string",
+                                                "example": "Send an email"
+                                            },
+                                            "user_id": {
+                                                "type": "integer"
+                                            },
+                                            "refresh": {
+                                                "type": "integer"
+                                            },
+                                            "id": {
+                                                "type": "integer",
+                                                "example": "1"
+                                            },
+                                            "action_icon": {
+                                                "type": "string",
+                                                "example": "http://localhost:8000/storage/icons/email.svg"
+                                            },
+                                            "reaction_icon": {
+                                                "type": "string",
+                                                "example": "http://localhost:8000/storage/icons/email.svg"
+                                            },
+                                            "active": {
+                                                "type": "boolean",
+                                                "example": false
+                                            },
+                                            "public": {
+                                                "type": "boolean",
+                                                "example": false
+                                            },
+                                            "is_available": {
+                                                "type": "boolean",
+                                                "example": false
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
+        },
+        "/area/{areadId}/copy": {
+            "post": {
+                "tags": [
+                    "Area"
+                ],
+                "summary": "Copy a public area",
+                "operationId": "0d233972e980909e7c3aae4dcb9b1f95",
+                "parameters": [
+                    {
+                        "name": "areaId",
+                        "in": "path",
+                        "description": "ID of area that needs to be copied",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "400": {
+                        "description": "AreaId is not a number"
+                    },
+                    "404": {
+                        "description": "This area doesn't exist"
+                    },
+                    "403": {
+                        "description": "This area is not public"
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    },
+                    "200": {
+                        "description": "Area copied successfully"
+                    }
+                }
+            }
+        },
+        "/login": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Login",
+                "operationId": "2dd578ff7aba2721293dac66833b27d1",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "email",
+                                    "password"
+                                ],
+                                "properties": {
+                                    "email": {
+                                        "type": "string",
+                                        "example": "john@example.com"
+                                    },
+                                    "password": {
+                                        "type": "string",
+                                        "example": "password"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "user": {
+                                            "properties": {
+                                                "id": {
+                                                    "type": "integer"
+                                                },
+                                                "name": {
+                                                    "type": "string",
+                                                    "example": "John Doe"
+                                                },
+                                                "email": {
+                                                    "type": "string",
+                                                    "example": "john@example.com"
+                                                },
+                                                "email_verified_at": {
+                                                    "type": "string",
+                                                    "example": "2021-03-18T14:00:00.000000Z"
+                                                },
+                                                "created_at": {
+                                                    "type": "string",
+                                                    "example": "2021-03-18T14:00:00.000000Z"
+                                                },
+                                                "updated_at": {
+                                                    "type": "string",
+                                                    "example": "2021-03-18T14:00:00.000000Z"
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "authorization": {
+                                            "properties": {
+                                                "token": {
+                                                    "type": "string",
+                                                    "example": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9"
+                                                },
+                                                "type": {
+                                                    "type": "string",
+                                                    "example": "bearer"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/register": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Register",
+                "operationId": "0903f2e0df1a8857bee538fc055417f0",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "name",
+                                    "email",
+                                    "password",
+                                    "password_confirmation"
+                                ],
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "example": "John Doe"
+                                    },
+                                    "email": {
+                                        "type": "string",
+                                        "example": "john@example.com"
+                                    },
+                                    "password": {
+                                        "type": "string",
+                                        "example": "password"
+                                    },
+                                    "password_confirmation": {
+                                        "type": "string",
+                                        "example": "password"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "User created successfully"
+                                        },
+                                        "user": {
+                                            "properties": {
+                                                "id": {
+                                                    "type": "integer"
+                                                },
+                                                "name": {
+                                                    "type": "string",
+                                                    "example": "John Doe"
+                                                },
+                                                "email": {
+                                                    "type": "string",
+                                                    "example": "john@example.com"
+                                                },
+                                                "email_verified_at": {
+                                                    "type": "string",
+                                                    "example": "2021-03-18T14:00:00.000000Z"
+                                                },
+                                                "created_at": {
+                                                    "type": "string",
+                                                    "example": "2021-03-18T14:00:00.000000Z"
+                                                },
+                                                "updated_at": {
+                                                    "type": "string",
+                                                    "example": "2021-03-18T14:00:00.000000Z"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/logout": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Logout",
+                "operationId": "68a6108af04af5e3bc1ea68a6c6f1299",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Successfully logged out"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/refresh": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Refresh token",
+                "operationId": "0c3ea3c61aed881016646810460499e9",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "user": {
+                                            "properties": {
+                                                "id": {
+                                                    "type": "integer"
+                                                },
+                                                "name": {
+                                                    "type": "string",
+                                                    "example": "John Doe"
+                                                },
+                                                "email": {
+                                                    "type": "string",
+                                                    "example": "john@example.com"
+                                                },
+                                                "email_verified_at": {
+                                                    "type": "string",
+                                                    "example": "2021-03-18T14:00:00.000000Z"
+                                                },
+                                                "created_at": {
+                                                    "type": "string",
+                                                    "example": "2021-03-18T14:00:00.000000Z"
+                                                },
+                                                "updated_at": {
+                                                    "type": "string",
+                                                    "example": "2021-03-18T14:00:00.000000Z"
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "authorization": {
+                                            "properties": {
+                                                "token": {
+                                                    "type": "string",
+                                                    "example": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9"
+                                                },
+                                                "type": {
+                                                    "type": "string",
+                                                    "example": "bearer"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/reactions/{reactionId}/defaultConfig": {
+            "get": {
+                "tags": [
+                    "Action / Reaction"
+                ],
+                "summary": "Get default config for a reaction",
+                "operationId": "959dbf3dc0060b7d3c65aa8282d5022f",
+                "parameters": [
+                    {
+                        "name": "actionId",
+                        "in": "path",
+                        "description": "ID of reaction that needs to be fetched",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                },
+                                "example": "{}"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request ID need to be numeric."
+                    },
+                    "404": {
+                        "description": "Not found."
+                    }
+                }
+            }
+        },
+        "/services": {
+            "get": {
+                "tags": [
+                    "Service"
+                ],
+                "summary": "Get all services",
+                "operationId": "96950feb4aaa0ea9dd7db3b3838bd669",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "properties": {
+                                            "id": {
+                                                "type": "integer"
+                                            },
+                                            "name": {
+                                                "type": "string",
+                                                "example": "Spotify"
+                                            },
+                                            "api_endpoint": {
+                                                "type": "string",
+                                                "example": "http://localhost:8000/storage/icons/spotify.svg"
+                                            },
+                                            "no_auth": {
+                                                "type": "boolean",
+                                                "example": "false"
+                                            },
+                                            "actions": {
+                                                "type": "array",
+                                                "items": {
+                                                    "type": "object",
+                                                    "oneOf": [
+                                                        {
+                                                            "$ref": "#/components/schemas/Action_Reaction"
+                                                        }
+                                                    ]
+                                                }
+                                            },
+                                            "reactions": {
+                                                "type": "array",
+                                                "items": {
+                                                    "oneOf": [
+                                                        {
+                                                            "$ref": "#/components/schemas/Action_Reaction"
+                                                        }
+                                                    ]
+                                                }
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    }
+                }
+            }
+        },
+        "/services/{serviceId}/actions": {
+            "get": {
+                "tags": [
+                    "Service"
+                ],
+                "summary": "Get all actions for a service",
+                "operationId": "0c951ef7f5b420d12358171e6d4ab53f",
+                "parameters": [
+                    {
+                        "name": "serviceId",
+                        "in": "path",
+                        "description": "ID of the service",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "actions": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "object",
+                                                "oneOf": [
+                                                    {
+                                                        "$ref": "#/components/schemas/Action_Reaction"
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        "service_icon": {
+                                            "type": "string",
+                                            "example": "http://localhost:8000/storage/icons/spotify.svg"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request ID need to be numeric."
+                    },
+                    "404": {
+                        "description": "400 Bad Request Wrong id used please try again with valid ID."
+                    }
+                }
+            }
+        },
+        "/services/{serviceId}/reactions": {
+            "get": {
+                "tags": [
+                    "Service"
+                ],
+                "summary": "Get all reactions for a service",
+                "operationId": "cb354b1f8caa602e0486524da13a72df",
+                "parameters": [
+                    {
+                        "name": "serviceId",
+                        "in": "path",
+                        "description": "ID of the service",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "reactions": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "object",
+                                                "oneOf": [
+                                                    {
+                                                        "$ref": "#/components/schemas/Action_Reaction"
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        "service_icon": {
+                                            "type": "string",
+                                            "example": "http://localhost:8000/storage/icons/spotify.svg"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request ID need to be numeric."
+                    },
+                    "404": {
+                        "description": "400 Bad Request Wrong id used please try again with valid ID."
+                    }
+                }
+            }
+        },
+        "/user": {
+            "get": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Get the connected user",
+                "operationId": "23679253d16f34d2972249751e3631dd",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "id": {
+                                            "type": "integer"
+                                        },
+                                        "name": {
+                                            "type": "string",
+                                            "example": "John Doe"
+                                        },
+                                        "email": {
+                                            "type": "string",
+                                            "example": "john@example.com"
+                                        },
+                                        "email_verified_at": {
+                                            "type": "string",
+                                            "example": "2021-03-18T14:00:00.000000Z"
+                                        },
+                                        "created_at": {
+                                            "type": "string",
+                                            "example": "2021-03-18T14:00:00.000000Z"
+                                        },
+                                        "updated_at": {
+                                            "type": "string",
+                                            "example": "2021-03-18T14:00:00.000000Z"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Update the connected user's name",
+                "operationId": "16977afdd8f53bd3ab3fc3f69a5d3724",
+                "requestBody": {
+                    "description": "User object that needs to be updated",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "name"
+                                ],
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "example": "John Doe"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "204": {
+                        "description": "Successful operation"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
+        },
+        "/user/services": {
+            "get": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Get the connected user's services",
+                "operationId": "412cd5ddb6e88fd7b7c3db1a8e97cbc0",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "name": {
+                                            "type": "string",
+                                            "example": "John Doe"
+                                        },
+                                        "email": {
+                                            "type": "string",
+                                            "example": "john@example.com"
+                                        },
+                                        "services": {
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "id": {
+                                                        "type": "integer"
+                                                    },
+                                                    "name": {
+                                                        "type": "string",
+                                                        "example": "Spotify"
+                                                    },
+                                                    "api_endpoint": {
+                                                        "type": "string",
+                                                        "example": "spotify.com"
+                                                    },
+                                                    "is_enabled": {
+                                                        "type": "boolean",
+                                                        "example": "true"
+                                                    },
+                                                    "service_icon": {
+                                                        "type": "string",
+                                                        "example": "http://localhost:8000/storage/icons/spotify.svg"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    }
+                }
+            }
+        },
+        "/user/areas": {
+            "get": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Get the connected user's areas",
+                "operationId": "80299bffa741ac7f8529c210557ac656",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "properties": {
+                                            "name": {
+                                                "type": "string",
+                                                "example": "My AreaHandler"
+                                            },
+                                            "action_name": {
+                                                "type": "string",
+                                                "example": "Receive an email"
+                                            },
+                                            "reaction_name": {
+                                                "type": "string",
+                                                "example": "Send an email"
+                                            },
+                                            "user_id": {
+                                                "type": "integer"
+                                            },
+                                            "refresh": {
+                                                "type": "integer"
+                                            },
+                                            "id": {
+                                                "type": "integer",
+                                                "example": "1"
+                                            },
+                                            "action_icon": {
+                                                "type": "string",
+                                                "example": "http://localhost:8000/storage/icons/email.svg"
+                                            },
+                                            "reaction_icon": {
+                                                "type": "string",
+                                                "example": "http://localhost:8000/storage/icons/email.svg"
+                                            },
+                                            "active": {
+                                                "type": "boolean",
+                                                "example": false
+                                            },
+                                            "public": {
+                                                "type": "boolean",
+                                                "example": false
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "Action_Reaction": {
+                "properties": {
+                    "id": {
+                        "type": "integer"
+                    },
+                    "name": {
+                        "type": "string",
+                        "example": "Add a track to a playlist"
+                    },
+                    "api_endpoint": {
+                        "type": "string",
+                        "example": "https://api.spotify.com/v1/"
+                    },
+                    "return_params": {
+                        "type": "string",
+                        "example": ""
+                    },
+                    "default_config": {
+                        "type": "string",
+                        "example": ""
+                    },
+                    "service_id": {
+                        "type": "integer",
+                        "example": "1"
+                    },
+                    "description": {
+                        "type": "string",
+                        "example": "Add a track to a playlist"
+                    }
+                },
+                "type": "object"
+            }
+        }
+    }
+}

@@ -1,0 +1,17 @@
+.copy-modale.glass {
+  position: absolute;
+  bottom: -20px;
+  z-index: 10;
+  background-color: rgba(168, 223, 142, 1);
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.1);
+  border: 2px solid rgba(181, 203, 153, 1);
+  border-radius: 0.5rem;
+  font-size: 0.8rem;
+  padding: 0.5rem;
+  text-align: center;
+  transition: all 0.3s ease-in-out;
+}
+
+.hide {
+  opacity: 0;
+}

@@ -1,0 +1,132 @@
+.main-app {
+  width: 100%;
+  padding: 3rem 1rem 1rem 1rem;
+  height: 100vh;
+  overflow-y: auto;
+  max-width: 120rem;
+}
+
+body {
+  background-image: url('../assets/svg/loginBackground.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+@media screen and (min-width: 768px) {
+  body {
+    background-image: url('../assets/svg/bg.svg');
+  }
+}
+
+.grid-container {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
+.card-container {
+  flex-grow: 1;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 1rem;
+  padding-bottom: 2rem;
+  padding-top: 1rem;
+  max-width: 1800px;
+}
+
+.grid-item {
+  display: flex;
+  justify-content: center;
+}
+
+.h1 {
+  font-family: 'Poppins', sans-serif;
+  color: var(--black);
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.h2 {
+  font-family: 'Poppins', sans-serif;
+  color: var(--black);
+  margin-top: 2rem;
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+  font-weight: 400;
+}
+
+.no-area {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  cursor: pointer;
+  gap: 1rem;
+}
+
+.no-area span {
+  font-weight: 500;
+  font-size: 1rem;
+  color: var(--black);
+}
+
+.no-area svg {
+  width: 24px;
+  height: 24px;
+}
+
+@media screen and (min-width: 768px) {
+  .card-container {
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 2rem;
+  }
+
+  .h1 {
+    margin-top: 3rem;
+    margin-left: 2rem;
+    font-size: 2.5rem;
+  }
+
+  .h2 {
+    margin-left: 2rem;
+  }
+}
+
+@media screen and (min-width: 1080px) {
+  .card-container {
+    grid-template-columns: repeat(3, 1fr);
+    padding-left: 3rem;
+    padding-right: 3rem;
+    grid-gap: 3rem;
+  }
+
+  .h1 {
+    font-size: 2.8rem;
+  }
+
+  .h2 {
+    font-size: 1.8rem;
+  }
+}
+
+@media screen and (min-width: 1600px) {
+  .card-container {
+    padding-top: 2rem;
+    padding-left: 5rem;
+    padding-right: 5rem;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 4rem;
+  }
+
+  .h1 {
+    font-size: 3rem;
+  }
+
+  .h2 {
+    margin-top: 2.5rem;
+    font-size: 2rem;
+  }
+}

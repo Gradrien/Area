@@ -1,0 +1,53 @@
+.helper-modale {
+  position: absolute;
+  width: 90%;
+  left: 5%;
+  top: 50px;
+  font-family: 'Poppins', sans-serif;
+  background-color: rgba(254, 254, 254, 0.95);
+  border-radius: 0.5rem;
+  font-weight: 500;
+  line-height: 1.2rem;
+  padding: 1rem;
+  z-index: 100;
+  /*border: 2px solid rgb(178, 67, 67, 0.85);*/
+  color: var(--black);
+  display: flex;
+  flex-direction: column;
+}
+
+.helper-modale h4 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.helper-modale button {
+  margin-top: 1rem;
+}
+
+.helper-modale span {
+  font-size: 0.8rem;
+  margin-top: 0.5rem;
+  font-weight: 500;
+  color: var(--black);
+  align-self: center;
+  cursor: pointer;
+  transition: color 0.2s ease-in;
+}
+
+.helper-modale span:hover {
+  color: var(--red);
+}
+
+@media screen and (min-width: 1200px) {
+  .helper-modale {
+    position: absolute;
+    background-color: rgba(254, 254, 254, 0.25);
+    border-radius: 1rem;
+    right: calc(-50% - 16px);
+    left: auto;
+    width: 50%;
+    top: 0;
+  }
+}

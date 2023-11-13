@@ -1,0 +1,92 @@
+.profile-service {
+  width: 90%;
+}
+
+.card-service-container {
+  padding: 1rem 1.7rem 1rem 1.7rem;
+  border-radius: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.5);
+  margin-bottom: 1rem;
+  color: var(--black);
+  text-decoration: none;
+  transition: all 0.1s ease-in;
+  cursor: pointer;
+}
+
+.card-service-container:hover {
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.25);
+  transform: scale(1.02);
+}
+
+.service-glass {
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(27px);
+}
+
+.card-service {
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.card-service-icon {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.card-service-name {
+  gap: 1rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.no-hover:hover {
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.1);
+  cursor: auto;
+  transform: scale(1);
+}
+
+.disconnect-link {
+  display: none;
+  text-decoration: underline;
+  color: var(--red);
+  font-family: 'Poppins', sans-serif;
+}
+
+.disconnect-img {
+  display: none;
+  width: 20px;
+  height: 20px;
+}
+
+.connect-img {
+  width: 20px;
+  height: 20px;
+}
+
+.connected:hover .connect-img {
+  display: none;
+}
+
+.connected:hover .disconnect-img {
+  display: block;
+}
+
+.connected:hover .disconnect-link {
+  display: block;
+}
+
+.warning-text {
+  color: var(--red);
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+  padding-bottom: 1rem;
+  width: 100%;
+  text-align: center;
+  line-height: normal;
+}

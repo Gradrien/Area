@@ -1,0 +1,30 @@
+.google__oauth-btn {
+  text-decoration: none;
+  padding: 1rem 1.5rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--black);
+  border-radius: 1rem;
+  font-size: 1rem;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  max-width: fit-content;
+  transition: all 0.1s ease-in;
+}
+
+.glass {
+  border: 2px solid rgba(255, 255, 255, 0.32);
+  background: rgba(254, 254, 254, 0.25);
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(27px);
+}
+
+.google__oauth-btn:hover {
+  box-shadow: none;
+}
+
+.google__oauth-btn span {
+  margin-left: 1rem;
+}

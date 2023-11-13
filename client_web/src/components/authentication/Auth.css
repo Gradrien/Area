@@ -1,0 +1,123 @@
+.container-auth-page {
+  padding: 2rem 2.5rem 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.header-auth-page {
+  text-align: center;
+}
+
+.app-name-auth-page {
+  font-family: Poppins, sans-serif;
+  margin-top: 1rem;
+  font-size: 2.5rem;
+  font-weight: 500;
+  color: var(--black);
+  margin-bottom: 2rem;
+}
+
+.container-form-auth-page {
+  padding-top: 0;
+  max-width: 480px;
+}
+
+.input-auth-page {
+  margin-top: 1.5rem;
+  width: 100%;
+  font-size: 1rem;
+  font-weight: 400;
+  font-family: Poppins, sans-serif;
+  border-radius: 1rem;
+  padding: 1rem;
+}
+
+.input-auth-page.glass.profile {
+  margin-top: 0.5rem;
+}
+
+.send-form-glass-auth-page {
+  border: 1px solid rgba(32, 41, 201, 0.5);
+  background: rgba(32, 41, 201, 0.8);
+  backdrop-filter: blur(10px);
+}
+
+.send-form-auth-page {
+  color: var(--white);
+  font-size: 1rem;
+  font-family: Poppins, sans-serif;
+  background-color: var(--blue);
+  width: 100%;
+  margin-top: 3rem;
+  text-align: center;
+  padding: 1rem 1.5rem;
+  border-radius: 1rem;
+  transition: background-color 0.2s ease-in;
+}
+
+.send-form-auth-page:hover {
+  background-color: #1a1f9b;
+}
+
+.no-account-auth-page {
+  font-family: Poppins, sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  margin-top: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sign-up-auth-page {
+  color: var(--blue);
+}
+
+.or-divider-auth-page {
+  align-items: center;
+  font-size: 0.75rem;
+  margin-top: 2.5rem;
+  display: flex;
+  color: var(--blue);
+  font-weight: 600;
+  font-family: 'Poppins', sans-serif;
+  width: 100%;
+  max-width: 400px;
+}
+
+.or-divider-auth-page::before,
+.or-divider-auth-page::after {
+  content: '';
+  background-color: var(--white);
+  margin: 0 1rem 0 1rem;
+  display: block;
+  width: 40%;
+  height: 2px;
+}
+
+.services-list-auth-page {
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: center;
+}
+
+.auth-error {
+  color: var(--red);
+  font-size: 1rem;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  margin-top: 1rem;
+}
+
+.auth-container {
+  height: 100vh;
+  overflow-y: auto;
+  width: 100%;
+}
+
+@media screen and (min-width: 480px) {
+  .container-form-auth-page {
+    margin-top: 1rem;
+  }
+}

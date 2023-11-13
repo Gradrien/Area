@@ -1,0 +1,155 @@
+.configuration-form {
+  border-radius: 1rem;
+  /*padding: 1.25rem;*/
+  margin-top: 1rem;
+  transition: all 0.2s ease-in;
+}
+
+.configuration-form.action {
+  position: relative;
+  z-index: 99;
+}
+
+.edition-form-container {
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  transition: all 0.2s ease-in;
+  padding: 0 1.25rem 1.25rem;
+}
+
+.configuration-form.hidden .edition-form-container {
+  display: none;
+}
+
+.configuration-form.hidden .edition-form-header {
+  margin-bottom: 0;
+}
+
+.edition-form-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+  transition: all 0.2s ease-in;
+  padding: 1.25rem;
+}
+
+.edition-form-header.area-name {
+  padding-left: 0;
+  padding-right: 0;
+  padding-top: 0;
+}
+
+.configuration-form.hidden .edition-form-arrow {
+  transform: rotateZ(0);
+}
+
+.edition-form-arrow {
+  transform: rotateZ(90deg);
+  transition: all 0.2s ease-in;
+}
+
+.danger-zone {
+  border-top: 1px solid var(--red);
+  margin-top: 2rem;
+  margin-bottom: 3rem;
+  padding-top: 1rem;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  color: var(--red);
+  display: flex;
+  flex-direction: column;
+}
+
+.danger-zone h3 {
+  margin-bottom: 3rem;
+}
+
+.danger-zone input {
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.5rem;
+  font-family: 'Poppins', sans-serif;
+  color: var(--black);
+  font-weight: 600;
+  margin-bottom: 2rem;
+  height: 2rem;
+  max-width: 800px;
+}
+
+.danger-zone label {
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+
+.update-error-message {
+  color: var(--red);
+  font-size: 1rem;
+  margin-top: 2rem;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  text-align: center;
+}
+
+@media screen and (min-width: 768px) {
+  .configuration-form {
+    margin: 1rem 2rem 0 2rem;
+  }
+
+  .danger-zone {
+    margin: 4rem 2rem;
+  }
+}
+
+@media screen and (min-width: 1080px) {
+  .configuration-form {
+    margin: 0;
+    width: 100%;
+  }
+
+  .area-edition {
+    margin-top: 6rem;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .forms-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    width: 50%;
+  }
+
+  .danger-zone {
+    margin: 4rem 12rem;
+  }
+}
+
+.area-public {
+  transition: all 0.2s ease-in;
+  padding: 0.75rem 1rem;
+  font-family: 'Poppins', sans-serif;
+  border-radius: 1rem;
+  width: 100%;
+  text-align: center;
+  font-weight: 600;
+  margin-top: 0.25rem;
+  color: var(--red);
+}
+
+.area-public:hover {
+  cursor: pointer;
+  background: rgb(178, 67, 67);
+  color: var(--white);
+}
+
+.area-name-edit {
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.5rem;
+  font-family: 'Poppins', sans-serif;
+  color: var(--black);
+  font-weight: 600;
+  font-size: 1.2rem;
+}

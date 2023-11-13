@@ -1,0 +1,13 @@
+{
+  "dependencies": {
+    "pre-commit": "^1.2.2"
+  },
+  "scripts": {
+    "lint": "npx prettier client_web/src --config client_web/.prettierrc --write",
+    "add": "git add client_web"
+  },
+  "pre-commit": [
+    "lint",
+    "add"
+  ]
+}
